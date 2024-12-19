@@ -1,0 +1,180 @@
+/* General Styling */
+body {
+    font-family: Arial, sans-serif;
+    text-align: left;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+#container {
+    width: 80%;
+    margin: 20px auto;
+}
+
+/* Task 2: Title Styling for 'Example of Formatting Tags' */
+h1.formatting-tags {
+    font-size: 28px; /* Font size */
+    color: #228B22; /* Green text */
+    background-color: #F0F5E1; /* Light green background */
+    font-weight: bold;
+    padding: 10px 20px;
+    border-left: 5px solid #6B8E23; /* Olive green left border */
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+p.formatting{
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 10px 0;
+
+}
+
+b, strong {
+    font-weight: bold;
+    color: black; /* Bold text in black */
+}
+
+i, em {
+    font-style: italic;
+    color: #555; /* Italic text in gray */
+}
+
+small {
+    font-size: 12px;
+    color: #999; /* Small text in light gray */
+}
+
+mark {
+    background-color: yellow; /* Highlighted text in yellow */
+    color: black;
+}
+
+u {
+    text-decoration: underline;
+    color: blue;
+}
+
+sub {
+    vertical-align: sub;
+    font-size: smaller;
+}
+
+sup {
+    vertical-align: super;
+    font-size: smaller;
+}
+
+
+/* Task 3: Title Styling for 'The Best Features of the Internet' */
+h1.features-title {
+    font-size: 24px;
+    color: #FFFFFF; /* White text */
+    background-color: #2F8F94; /* Teal background */
+    font-weight: bold;
+    padding: 15px 20px;
+    margin-bottom: 20px;
+    border-left: 6px solid #196C71; /* Darker teal left border */
+    text-align: left;
+    border-radius: 5px;
+}
+
+/* General List Styling for Task 3 */
+ul, ol {
+    font-size: 16px;
+    line-height: 1.8; /* Improved line spacing */
+    margin-left: 30px;
+    padding-left: 20px;
+}
+
+li {
+    margin: 8px 0; /* More spacing between items */
+    color: #333;
+}
+
+/* Nested List Differentiation */
+ul ul, ol ol {
+    margin-left: 20px;
+    font-style: italic;
+    color: #555;
+    padding-left: 15px;
+    list-style-type: circle;
+}
+
+/* Titles */
+h1.table-title,
+h3.table-heading {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    color: #000; /* Black text */
+    margin: 20px 0;
+}
+
+/* General Table Styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 16px;
+    text-align: center;
+}
+
+th,
+td {
+    border: 1px solid #000; /* Black borders */
+    padding: 12px;
+    vertical-align: middle;
+}
+
+/* Header Styling */
+th {
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Table Rows */
+tr:nth-child(even) {
+    background-color: #f9f9f9; /* Light gray for alternate rows */
+}
+
+tr:hover {
+    background-color: #eaeaea; /* Slightly darker gray on hover */
+}
+
+/* Table 1: Fruits and Prices */
+.fruit-table {
+    width: 50%; /* Adjust the table width to make it smaller */
+    margin: 0 auto; /* Center the table horizontally */
+}
+
+.fruit-table th,
+.fruit-table td {
+    padding: 6px 8px; /* Reduce the padding inside the cells */
+    font-size: 14px; /* Reduce the font size */
+}
+
+.fruit-table th {
+    text-align: center;
+    font-weight: bold;
+}
+
+.fruit-table td:last-child {
+    font-weight: bold;
+}
+
+/* Table 2: Camelid Comparison */
+.camelid-table .table-image {
+    display: block;
+    margin: 0 auto;
+    width: 300px; /* Image size */
+    height: auto;
+    border: 1px solid #000;
+}
+
+.camelid-table .below-image-text {
+    font-size: 14px;
+    text-align: center;
+    padding: 10px;
+    font-style: italic;
+}

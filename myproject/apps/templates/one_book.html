@@ -1,0 +1,14 @@
+{% extends "layouts/base.html" %}
+{% load static %}
+{% block title %} Book Details {% endblock title %}
+
+{% block content %}
+  <h1 style="color: orange;">Book Title</h1> <!-- Inline CSS -->
+  <p style="color: white; background-color: darkgreen;">Details about the book</p> <!-- Inline CSS -->
+  <h2>Author:</h2>
+  <p>Author Name</p>
+  <h2>Summary:</h2>
+  <p>This book is about...</p>
+  <hr>
+  <a href="{% url 'books.list_books' %}">Back to List of Books</a>
+{% endblock content %}

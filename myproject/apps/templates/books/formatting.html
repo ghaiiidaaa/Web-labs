@@ -1,0 +1,26 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Formatting</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'books/main.css' %}">
+</head>
+<body>
+    <div id="container">
+        <h1 class="formatting-tags">Example of Formatting Tags</h1>
+        <p>This text has <b>subtext</b> using <b>b tag</b></p>
+        <p>This text has <b>subtext</b> using <strong>strong tag</strong></p>
+        <p>This text has <i>subtext</i> using <i>i tag</i></p>
+        <p>This text has <em>subtext</em> using <em>emphasize tag</em></p>
+        <p>This text has <small>subtext</small> using <small>small tag</small></p>
+        <p>This text has <mark>subtext</mark> using <mark>mark tag</mark></p>
+        <p>This text has <del>subtext</del> using <del>del tag</del></p>
+        <p>This text has <ins>subtext</ins> using <ins>ins tag</ins></p>
+        <p>This text has X<sub>subtext</sub> using <sub>sub tag</sub></p>
+        <p>This text has X<sup>subtext</sup> using <sup>sup tag</sup></p>
+    </div>
+</body>
+</html>

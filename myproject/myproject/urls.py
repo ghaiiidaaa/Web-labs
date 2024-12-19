@@ -16,9 +16,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
+from django.views.generic import RedirectView
+from apps.bookmodule import views as book_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('books/', include('apps.bookmodule.urls')),  # Include bookmodule URLs
+    path('books/', include('apps.bookmodule.urls')),
     path('users/', include('apps.usermodule.urls')),  # Include usermodule URLs
+    path('', RedirectView.as_view(url='/books/')),  # Redirect root URL to /books/
+    path('', book_views.home, name='home'),  # Serve the home view at the root URL
 ]

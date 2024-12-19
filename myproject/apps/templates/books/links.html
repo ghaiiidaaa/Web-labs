@@ -1,0 +1,34 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Links Styling</title>
+    <!-- Link to external CSS -->
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'books/main.css' %}"> 
+    
+</head>
+<body>
+    <h2>Links Styling</h2>
+    <div id="container">
+        <!-- Link 1: Opens in a new tab -->
+        <a href="https://qu.edu.sa" class="link new-tab" target="_blank">
+            Go to QU website (open a new tab)
+        </a>
+        <br>
+
+        <!-- Link 2: Opens in the same tab -->
+        <a href="https://qu.edu.sa" class="link same-tab">
+            Go to QU website (open in the same page/tab)
+        </a>
+        <br>
+
+        <!-- Link 3: Opens in the same tab with underline -->
+        <a href="https://qu.edu.sa" class="link same-tab-underline">
+            Go to QU website (open in the same page/tab with underline)
+        </a>
+    </div>
+</body>
+</html>
