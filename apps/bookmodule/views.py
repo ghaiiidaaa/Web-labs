@@ -61,3 +61,32 @@ def search_books(request):
         return render(request, 'bookmodule/bookList.html', {'books': newBooks})
 
     return render(request, 'bookmodule/search.html')
+
+
+BOOKS = [
+    {"id": 1, "title": "Continuous Delivery and DevOps", "author": "J. Humble", "price": 150.0, "edition": 3, "description": "Guide to modern software delivery."},
+    {"id": 2, "title": "DevOps Principles", "author": "Gene Kim", "price": 120.0, "edition": 1, "description": "Learn about DevOps culture."},
+    {"id": 3, "title": "Machine Learning Guide", "author": "Andriy Burkov", "price": 95.0, "edition": 2, "description": "Introduction to ML concepts."},
+    {"id": 4, "title": "Reverse Engineering Secrets", "author": "E. Eilam", "price": 100.0, "edition": 3, "description": "In-depth reverse engineering techniques."},
+    {"id": 5, "title": "Data Science and Machine Learning", "author": None, "price": 110.0, "edition": 4, "description": "Practical guide to data science."},
+    {"id": 6, "title": "The Art of Software Testing", "author": "Glenford Myers", "price": 50.0, "edition": 3, "description": "Classic book on software testing."}
+]
+
+
+
+
+def simple_query(request):
+    # Filter books where 'and' is in the title
+    mybooks = [book for book in BOOKS if 'and' in book['title'].lower()]
+    return render(request, 'bookmodule/bookList.html', {'books': mybooks})
+
+def lookup_query(request):
+    # Filter books based on multiple conditions
+    mybooks = [
+        book for book in BOOKS
+    if 'and' in book['title'].lower() and
+       book['edition'] >= 2 and
+       book['price'] > 100 and
+       book['author'] is not None
+    ]
+    return render(request, 'bookmodule/bookList.html', {'books': mybooks})
