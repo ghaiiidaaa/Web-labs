@@ -1,6 +1,11 @@
 from django.shortcuts import render
 from django.shortcuts import render
 from django.shortcuts import render
+from .models import Book
+from django.db.models import Q
+from .models import Address
+from .models import Student
+
 
 def index(request):
     return render(request, "bookmodule/index.html")
@@ -90,3 +95,53 @@ def lookup_query(request):
        book['author'] is not None
     ]
     return render(request, 'bookmodule/bookList.html', {'books': mybooks})
+
+
+
+
+def lab8_task1(request):
+    books = Book.objects.filter(price__lte=50)
+    return render(request, 'bookmodule/task1.html', {'books': books})
+
+def lab8_task2(request):
+    books = Book.objects.filter(
+        Q(edition__gt=2) & (Q(title__icontains='qu') | Q(author__icontains='qu'))
+    )
+    return render(request, 'bookmodule/task2.html', {'books': books})
+
+def lab8_task3(request):
+    books = Book.objects.filter(
+        ~Q(edition__gt=2) & ~(Q(title__icontains='qu') | Q(author__icontains='qu'))
+    )
+    return render(request, 'bookmodule/task3.html', {'books': books})
+
+def lab8_task4(request):
+    books = Book.objects.order_by('title')
+    return render(request, 'bookmodule/task4.html', {'books': books})
+
+
+from django.db.models import Count, Sum, Avg, Max, Min
+
+def lab8_task5(request):
+    aggregations = Book.objects.aggregate(
+        total_books=Count('id'),
+        total_price=Sum('price'),
+        avg_price=Avg('price'),
+        max_price=Max('price'),
+        min_price=Min('price')
+    )
+    return render(request, 'bookmodule/task5.html', {'aggregations': aggregations})
+
+
+def some_view_function(request):
+    books = Book.objects.all()
+    return render(request, 'template.html', {'books': books})
+
+def city_count(request):
+    counts = Address.objects.annotate(student_count=Count('student'))
+    return render(request, 'bookmodule/city_count.html', {'counts': counts})
+
+
+def student_list(request):
+    students = Student.objects.select_related('address')  # Use select_related for optimized query
+    return render(request, 'bookmodule/student_list.html', {'students': students})

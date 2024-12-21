@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Count by City</title>
+</head>
+<body>
+    <h1>Student Count by City</h1>
+    <ul>
+        {% for address in counts %}
+        <li>{{ address.city }}: {{ address.student_count }} students</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
