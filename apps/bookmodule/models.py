@@ -26,4 +26,25 @@ class Student(models.Model):
 
 
 
+class Address2(models.Model):  # Renamed to avoid conflicts with the previous Address model
+    city = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.city
+
+class Student2(models.Model):  # Renamed to avoid conflicts with the previous Student model
+    name = models.CharField(max_length=100)
+    age = models.PositiveIntegerField()
+    addresses = models.ManyToManyField(Address2)  # Many-to-many relationship
+
+    def __str__(self):
+        return self.name
+    
+class ImageModel(models.Model):
+    title = models.CharField(max_length=100)
+    image = models.ImageField(upload_to='images/')  # Images should be saved to 'media/images/'
+
+    def __str__(self):
+        return self.title
+
 # Create your models here.

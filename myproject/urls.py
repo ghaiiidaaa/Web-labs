@@ -18,11 +18,18 @@ from django.contrib import admin
 from django.urls import include, path
 from django.views.generic import RedirectView
 from apps.bookmodule import views as book_views
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('books/', include('apps.bookmodule.urls')),
-    path('users/', include('apps.usermodule.urls')),  # Include usermodule URLs
+    path('books/', include('apps.bookmodule.urls')),  # Includes bookmodule URLs
+    path('users/', include('apps.usermodule.urls')),
     path('', RedirectView.as_view(url='/books/')),  # Redirect root URL to /books/
-    path('', book_views.home, name='home'),  # Serve the home view at the root URL
+    path('students/', include('apps.bookmodule.urls')),
+     path('students2/', include('apps.bookmodule.urls')), 
+ path('images/', include('apps.bookmodule.urls')),  # Routes to images URLs
 ]
+
+if settings.DEBUG:  # Only serve media files during development
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
